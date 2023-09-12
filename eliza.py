@@ -75,6 +75,12 @@ for x in range(0,n1):
 
 
 # -----USER INPUT SECTION-----
+print("\t\t\t  ELIZA")
+print("\t\t    CREATIVE COMPUTING")
+print("\t\t  MORRISTOWN, NEW JERSEY")
+print("")
+print("")
+print("")
 
 print("\nHI! I'M ELIZA. WHAT'S YOUR PROBLEM?")
 
