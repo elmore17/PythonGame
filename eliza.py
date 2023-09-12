@@ -5,13 +5,6 @@ def regExMagic(pattern, string):
     objectMatch = re.search(pattern, string)
     return objectMatch
 
-    
-def getUserInput():    
-    patientInput = input("? ")
-    problem = " " + patientInput.upper() + "  "
-    problem = problem.replace("'","")
-    return problem
-
 
 def findKeyword():
     dataPointer=0
@@ -43,7 +36,7 @@ def conjugateString(text, keyword, location):
     if conjugateText.startswith(" ",1,2):
         conjugateText=" "+conjugateText.lstrip(" ")
  
-    return conjugateText;
+    return conjugateText
 
 # -----INITIALIZATION-----
 
@@ -87,7 +80,9 @@ print("\nHI! I'M ELIZA. WHAT'S YOUR PROBLEM?")
 previousProblem = ''
 
 while True:
-    problem = getUserInput()
+    patientInput = input("? ")
+    problem = " " + patientInput.upper() + "  "
+    problem = problem.replace("'","")
     
     pattern = 'SHUT'
 
