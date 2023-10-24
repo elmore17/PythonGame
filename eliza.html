@@ -33,7 +33,7 @@
 
         #console {
             width: 800px;
-            height: 1000px;
+            height: 400px;
             border: 1px solid #ccc;
             background-color: black;
             overflow-y: scroll;
@@ -54,23 +54,23 @@
             text-decoration: none;
             padding: .8em 1em calc(.8em + 3px);
             border-radius: 3px;
-            background: rgb(64,199,129);
-            box-shadow: 0 -3px rgb(53,167,110) inset;
+            background: rgb(243, 32, 180);
+            box-shadow: 0 -3px rgb(243, 32, 180) inset;
             transition: 0.2s;
             margin-top: 10px;
         } 
-        button.btn:hover { background: rgb(53, 167, 110); }
+        button.btn:hover { background: rgb(231, 28, 164); }
         button.btn:active {
-            background: rgb(33,147,90);
-            box-shadow: 0 3px rgb(33,147,90) inset;
+            background: rgb(243, 32, 180);
+            box-shadow: 0 3px rgb(243, 32, 180) inset;
         }
 </style>
 </head>
 <body onload="brython()">
     <div id="container">
-        <h1 style="text-align: center;">Eliza</h1>
+        <h1 style="text-align: center; margin-top: 300px;">Eliza</h1>
         <div id="console"></div>
-        <input id="input" type="text" placeholder="Enter card number or 'YES' to continue game">
+        <input id="input" type="text" placeholder="Your text">
         <button class="btn" onclick="reloadPage()">Restart game</button>
     </div>
 <script type="text/python" src="eliza.py">

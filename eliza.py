@@ -34,10 +34,10 @@ async def read():
 def run(function):
     if is_web():
         from browser import aio
-        aio.run(function())
+        aio.run(function)
     else:
         import asyncio
-        asyncio.run(function())
+        asyncio.run(function)
 
 
 def regExMagic(pattern, string):
@@ -98,16 +98,16 @@ async def eliza_chat(n1, n2, n3, dataElements):
         dataPointer = dataPointer + 2
 
     # -----USER INPUT SECTION-----
-    print("\t\t\t  ELIZA")
-    print("\t\t    CREATIVE COMPUTING")
-    print("\t\t  MORRISTOWN, NEW JERSEY")
-    print("\n\n\n")
-    print("\nHI! I'M ELIZA. WHAT'S YOUR PROBLEM?")
+    write("\t\t\t  ELIZA")
+    write("\t\t    CREATIVE COMPUTING")
+    write("\t\t  MORRISTOWN, NEW JERSEY")
+    write("\n\n\n")
+    write("\nHI! I'M ELIZA. WHAT'S YOUR PROBLEM?")
 
     previousProblem = ''
 
     while True:
-        patientInput = input("? ")
+        patientInput = (await read())
         problem = " " + patientInput.upper() + "  "
         problem = problem.replace("'", "")
 
@@ -115,7 +115,7 @@ async def eliza_chat(n1, n2, n3, dataElements):
 
         if str(regExMagic(pattern, problem)) == "None":
             if problem == previousProblem:
-                print("PLEASE DON'T REPEAT YOURSELF!")
+                write("PLEASE DON'T REPEAT YOURSELF!")
             else:
                 saveKeywordNumber, textLocation, foundKeyword = findKeyword(n1, dataElements, problem)
                 if saveKeywordNumber > -1:
@@ -131,14 +131,14 @@ async def eliza_chat(n1, n2, n3, dataElements):
                     rightReply[keywordNumber] = s[keywordNumber]
 
                 if foundResponse[len(foundResponse) - 1] != "*":
-                    print(foundResponse)
+                    write(foundResponse)
                     previousProblem = problem
                 else:
-                    print(foundResponse.replace("*", conjugatedString))
+                    write(foundResponse.replace("*", conjugatedString))
                     previousProblem = problem
 
         else:
-            print("OK, I'll SHUT UP...")
+            write("OK, I'll SHUT UP...")
             break
 
 
